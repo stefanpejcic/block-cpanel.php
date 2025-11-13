@@ -23,10 +23,4 @@ To use it, run the following command as `root` on a cpanel server:
 cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/run.sh
 ```
 
-`run.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`. [Review the script before running](/blob/main/run.sh) if you want to inspect the changes first.
-
-To automatically reapply after cPanel updates, run this script to hook into `/scripts/postupcp` so the repo pulls and the setup runs after cPanel’s update process:
-
-```bash
-bash /root/block-cpanel.php/setup.sh
-```
+`setup.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`, and hook into `/scripts/postupcp` so it runs after each cPanel’s update process (not overwritten on update). [Review the script before running](/blob/main/setup.sh) if you want to inspect the changes first.
