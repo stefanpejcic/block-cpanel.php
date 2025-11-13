@@ -10,7 +10,7 @@ cd $SCRIPT_DIR && git pull
 bash "$SCRIPT_DIR/run.sh"
 
 #4. setup.sh to re-add it after every cpanel update
-line_to_add="cd /root/block-cpanel.php/ && git pull ; bash /root/block-cpanel.php/setup.sh #https://github.com/stefanpejcic/block-cpanel.php"
+line_to_add="cd $SCRIPT_DIR && git pull ; bash /root/block-cpanel.php/setup.sh #https://github.com/stefanpejcic/block-cpanel.php"
 if ! grep -qF "$line_to_add" /scripts/postupcp; then
   echo "Adding to /scripts/postupcp file.."
   echo "$line_to_add" >> /scripts/postupcp
