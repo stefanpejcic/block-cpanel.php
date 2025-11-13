@@ -15,6 +15,9 @@ if [[ ! -f "$FILE" ]]; then
   exit 1
 fi
 
+echo "Setting read permisisons to file.."
+chmod +r "$FILE"
+
 if grep -Fq "your-domain.com" "$FILE"; then
   echo "Already blocked"
 else
@@ -31,3 +34,4 @@ else
   ' "$FILE" > "$tmpfile" && mv "$tmpfile" "$FILE"
   echo "Added"
 fi
+
