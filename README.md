@@ -6,8 +6,8 @@ A simple script to block access to cPanel's LiveAPI PHP class so that calls orig
 ## Why
 cPanel exposes programmatic access via:
 
-* `/usr/local/cpanel/php/cpanel.php` — PHP class used by UAPI
-* `/usr/local/cpanel/bin/uapi` — CLI wrapper for API calls
+* [`/usr/local/cpanel/php/cpanel.php`](https://api.docs.cpanel.net/guides/guide-to-the-liveapi-system/guide-to-the-liveapi-system-php-class/) — PHP class used by UAPI
+* [`/usr/local/cpanel/bin/uapi`](https://api.docs.cpanel.net/openapi/cpanel/overview/) — CLI wrapper for API calls
 
 Many malicious or poorly written WordPress plugins and arbitrary PHP scripts abuse `/usr/local/cpanel/php/cpanel.php` to view or change a user’s cPanel data (create mailboxes, add forwarders, etc.). At the same time, third‑party cPanel integrations (Softaculous, WP Toolkit, SitePad, etc.) legitimately use this file — so a naive block (`chmod 0600`) breaks those plugins.
 
