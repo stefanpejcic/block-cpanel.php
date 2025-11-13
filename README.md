@@ -24,3 +24,21 @@ cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash b
 ```
 
 `setup.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`, and hook into `/scripts/postupcp` so it runs after each cPanel’s update process (not overwritten on update). [Review the script before running](/blob/main/setup.sh) if you want to inspect the changes first.
+
+## Not anymore?
+To uninstlal it:
+
+1. Edit `/usr/local/cpanel/php/cpanel.php` and remove lines form the start of the file:
+   ```if (!isset($_ENV['CPANEL']) && !isset($_SERVER['REMOTE_USER'])) {
+      header('HTTP/1.1 403 Forbidden');
+      exit('Message support@your-domain.com if you need API access!');
+   }   
+   ```
+2. Edit `/scripts/postupcp` and remove the line:
+   ```bash
+   cd /root/block-cpanel.php && git pull ; bash /root/block-cpanel.php/setup.sh #https://github.com/stefanpejcic/block-cpanel.php
+   ```
+3. Delete folder:
+   ```bash
+   rm -rf /root/block-cpanel.php   
+   ```
