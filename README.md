@@ -22,7 +22,7 @@ To use it, run the following command as `root` on a cpanel server:
 cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/setup.sh
 ```
 
-`setup.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`, and hook into `/scripts/postupcp` so it runs after each cPanel’s update process (not overwritten on update). [Review the script before running](/blob/main/setup.sh) if you want to inspect the changes first.
+`setup.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`, and hook into `/scripts/postupcp` so it runs after each cPanel’s update process (not overwritten on update).
 
 ## Uninstall
 
