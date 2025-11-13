@@ -1,4 +1,4 @@
-# block /usr/local/cpanel/php/cpanel.php
+# 🚫 block /usr/local/cpanel/php/cpanel.php
 Block access to the LiveAPI PHP class for cPanel users (prevents terminal / PHP-script abuse)
 
 A simple script to block access to cPanel's LiveAPI PHP class so that calls originating from a user's website or terminal are denied, while legitimate calls originating from the cPanel UI (and third-party plugins) are allowed.
