@@ -20,15 +20,15 @@ This script patches `/usr/local/cpanel/php/cpanel.php` to perform an additional 
 Run the following commands as `root` on a cpanel server:
 
 ```bash
-cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/setup.sh
+cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/run.sh
 ```
 
-`setup.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`. [Review the script before running](/blob/main/setup.sh) if you want to inspect the changes first.
+`run.sh` will apply the modification to `/usr/local/cpanel/php/cpanel.php`. [Review the script before running](/blob/main/run.sh) if you want to inspect the changes first.
 
 To automatically reapply after cPanel updates, add a line to `/scripts/postupcp` so the repo pulls and the setup runs after cPanel’s update process:
 
 ```bash
-line_to_add="cd /root/block-cpanel.php/ && git pull ; bash /root/block-cpanel.php/setup.sh #https://github.com/stefanpejcic/block-cpanel.php"
+line_to_add="cd /root/block-cpanel.php/ && git pull ; bash /root/block-cpanel.php/run.sh #https://github.com/stefanpejcic/block-cpanel.php"
 
 if ! grep -qF "$line_to_add" /scripts/postupcp; then
   echo "$line_to_add" >> /scripts/postupcp
