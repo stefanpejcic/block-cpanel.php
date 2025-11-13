@@ -17,7 +17,7 @@ Many malicious or poorly written WordPress plugins and arbitrary PHP scripts abu
 
 This script patches `/usr/local/cpanel/php/cpanel.php` to perform an additional check: if the call is coming from the cPanel UI (or an allowed internal context), it permits the request; if it’s coming from a site’s PHP or a shell session, access is denied.
 
-To use ti, run the following command as `root` on a cpanel server:
+To use it, run the following command as `root` on a cpanel server:
 
 ```bash
 cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/run.sh
