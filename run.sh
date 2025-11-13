@@ -1,6 +1,7 @@
 #!/bin/bash
 
 FILE="/usr/local/cpanel/php/cpanel.php"
+echo "Checking $FILE file.."
 
 read -r -d '' BLOCK <<'EOF'
 if (!isset($_ENV['CPANEL']) && !isset($_SERVER['REMOTE_USER'])) {
@@ -15,7 +16,7 @@ if [[ ! -f "$FILE" ]]; then
 fi
 
 if grep -Fq "your-domain.com" "$FILE"; then
-  echo "Already blocked in $FILE"
+  echo "Already blocked"
 else
   tmpfile=$(mktemp)
   awk -v block="$BLOCK" '
@@ -28,6 +29,5 @@ else
       }
     }
   ' "$FILE" > "$tmpfile" && mv "$tmpfile" "$FILE"
-  echo "Added to $FILE"
+  echo "Added"
 fi
-
