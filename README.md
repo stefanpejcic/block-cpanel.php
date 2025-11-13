@@ -28,5 +28,5 @@ cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash b
 To automatically reapply after cPanel updates, run this script to hook into `/scripts/postupcp` so the repo pulls and the setup runs after cPanel’s update process:
 
 ```bash
-cd /root && git clone https://github.com/stefanpejcic/block-cpanel.php && bash block-cpanel.php/setup.sh
+bash /root/block-cpanel.php/setup.sh
 ```
